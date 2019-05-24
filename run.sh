@@ -9,12 +9,12 @@ done;
 
 # Adding the Snyk api token
 export token=`cat ~/.config/configstore/snyk.json | jq '.api'`
-curl -X POST 'http://localhost:8080/credentials/store/system/domain/_/createCredentials' \
+curl -X POST 'http://localhost:9080/credentials/store/system/domain/_/createCredentials' \
 --data-urlencode 'json={
   "": "0",
   "credentials": { "scope": "GLOBAL", "id": "snyk", "token": '$token', "description": "snyk", "$class": "io.snyk.jenkins.credentials.DefaultSnykApiToken" } 
 }'
 
 # Adding Jenkins job
-curl -s -XPOST 'http://localhost:8080/createItem?name=goof' --data-binary @resources/goof.xml -H "Content-Type:text/xml"
+curl -s -XPOST 'http://localhost:9080/createItem?name=goof' --data-binary @resources/goof.xml -H "Content-Type:text/xml"
 
