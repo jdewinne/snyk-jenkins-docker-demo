@@ -15,6 +15,7 @@ curl -X POST 'http://localhost:9080/credentials/store/system/domain/_/createCred
   "credentials": { "scope": "GLOBAL", "id": "snyk", "token": '$token', "description": "snyk", "$class": "io.snyk.jenkins.credentials.DefaultSnykApiToken" } 
 }'
 
-# Adding Jenkins job
+# Adding Jenkins jobs
 curl -s -XPOST 'http://localhost:9080/createItem?name=goof' --data-binary @resources/goof.xml -H "Content-Type:text/xml"
+curl -s -XPOST 'http://localhost:9080/createItem?name=goof_with_build_step' --data-binary @resources/goof_with_build_step.xml -H "Content-Type:text/xml"
 
