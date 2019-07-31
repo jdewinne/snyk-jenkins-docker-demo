@@ -1,5 +1,5 @@
 #!/bin/sh
-tag="2.178-slim"
+tag="2.187-slim"
 docker build -t snyk-jenkins-docker-demo:$tag --build-arg jenkins_tag=$tag .
 docker run --rm --name snykjenkins -d -p 9080:8080  snyk-jenkins-docker-demo:$tag
 
