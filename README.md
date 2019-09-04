@@ -7,3 +7,4 @@
 # Run
 
 Use `./run.sh`
+Browse to http://localhost:9080
