@@ -3,7 +3,7 @@ tag="2.187-slim"
 docker build -t snyk-jenkins-docker-demo:$tag --build-arg jenkins_tag=$tag .
 docker run --rm --name snykjenkins -d -p 9080:8080  snyk-jenkins-docker-demo:$tag
 
-while [ "`/usr/bin/docker inspect -f {{.State.Health.Status}} snykjenkins`" != "healthy" ]; do
+while [ "`docker inspect -f {{.State.Health.Status}} snykjenkins`" != "healthy" ]; do
     sleep 2;
 done;
 
